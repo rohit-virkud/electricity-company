@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Lato:wght@900&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Lato:wght@900&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Electricity Company | @rohit_virkud</title>
     <style>
         *{
@@ -297,16 +298,16 @@
         .anim
         {
             
-            animation: fade 1s linear;
+            animation: moveIn 1s linear;
             transform: translateX(0%);
             z-index: 999;
             
         }
         .anim2
         {
-            animation: fade-out 1s linear;
+            animation: moveOut 1s linear;
         }
-        @keyframes fade
+        @keyframes moveIn
         {
             0%
             {
@@ -318,7 +319,7 @@
                 transform: translateX(0%);
             }
         }
-        @keyframes fade-out
+        @keyframes moveOut
         {
             0%
             {
@@ -333,11 +334,104 @@
             }
 
         }
+
+
+        /**/
+
+        .loader-container
+            {
+                position:fixed;
+                width: 100%;
+                height: 100vh;
+                background-color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+               
+               
+               
+            }
+            .logo-name
+            {
+                height: 42px;
+                width: 73px;
+                position: absolute;
+            }
+            .dual-ring {
+              display: inline-block;
+              width: 200px;
+              height: 200px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              
+            }
+          .dual-ring:after {
+            content: " ";
+            display: block;
+            width: 150px;
+            height: 150px;
+            margin: 8px;
+            border-radius: 50%;
+            border: 6px solid #fff;
+            border-color: #E75125 transparent #16A8E1 transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
+
+          }
+          @keyframes lds-dual-ring {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+
+          .fadeoutanim
+          {
+            animation: fade-out 4s  linear;
+          }
+          @keyframes fade-out {
+
+           0%{
+               opacity: 1;
+               z-index: 888;
+           }
+           100%
+           {
+            opacity: 0;
+            z-index: -888;
+           }
+
+              
+          }
+      
+          .loading-tag
+          {
+              margin-top: 50px;
+          }
+
+
+
+
     
 
     </style>
 </head>
 <body>
+
+
+    <!-- Loader ----> 
+    <div class="loader-container">
+        <div class="dual-ring">
+            <img src="name.png" alt="logo-name" class="logo-name"/>
+        </div>
+
+          <h3 class="loading-tag">Loading...</h3>
+  
+    </div> 
+     <!-- Loader End ----> 
    
     <div class="share-slide" id="share-slide">
         <img src="close icon.png" class="close-icon" onclick="closeTheShare()" >
@@ -451,6 +545,11 @@
                 element.classList.remove("anim");
                 
             }
+
+            $('document').ready(function(e){
+                $(".loader-container").delay( 1600 ).fadeOut('slow')
+
+            });
         </script>
 
 
