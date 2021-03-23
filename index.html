@@ -21,7 +21,7 @@
     		 color: inherit; 
     		 text-decoration: none;
         }
-        
+       
 
     .swiper-container
     {
@@ -54,8 +54,8 @@
         /*brand  logo*/
         .brand
         {
-            width: min(20vw,10vh);
-            height: min(20vw,10vh);
+            width: min(30vw,15vh);
+            height: min(30vw,15vh);
             margin-left: min(7vw,3.5vh);
             margin-top: min(7vw,3.5vh);
             margin-bottom: min(8vw,4vh);
@@ -99,7 +99,7 @@
         }
         .p-mg-top
         {
-            margin-top: 2vw;
+            margin-top: min(2vw,1vh);
         }
 
         /*button wrapper*/
@@ -167,7 +167,7 @@
             padding-left: min(2.463vw,1.2vh);
             background-color: #16A8E1;
             color:white;
-            margin-top:min(10vw,5vh);
+            margin-top:min(8vw,4vh);
             margin-left: min(5.8vw,3vh);
             font-family: 'Lato', sans-serif;
             font-size: min(3.5vw,1.7vh);
@@ -179,7 +179,7 @@
        
         .social-icons
         {
-              
+            position: fixed;
             margin-left: min(5.8vw,3vh);
             margin-top: min(12vw,6vh);
             bottom: 0;
@@ -191,8 +191,8 @@
 
         .translator-btn
         {
-            position: absolute;
-            width: 25vw;
+            position: fixed;
+            width: min(25vw,15vh);
             display: flex;
             justify-content: center;
             flex-shrink: 0;
@@ -244,7 +244,7 @@
         .share-icon
         {
             position: absolute;
-            top: 3%;
+            top: 5%;
             right: 5.5%;
             width: min(11vw,5.5vh);
             height: min(11vw,5.5vh);
@@ -539,7 +539,7 @@
                     var swiper = new Swiper('.swiper-container', {
               speed: 600,
               parallax: true,
-              effect: 'coverflow',
+             /* effect: 'coverflow',
               grabCursor: true,
               centeredSlides: true,
               slidesPerView: 'auto',
@@ -550,9 +550,9 @@
                 modifier: 1,
                 slideShadows: true,
 
-              },/*
+              },*/
               effect: 'flip',
-              grabCursor: true,*/
+              grabCursor: true,
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev'
