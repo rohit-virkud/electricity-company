@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Lato:wght@900&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Electricity Company | @rohit_virkud</title>
     <style>
@@ -20,6 +21,29 @@
     		 color: inherit; 
     		 text-decoration: none;
         }
+        .screen-01,.screen-02,.screen-03,.screen-04,.screen-05
+    {
+        overflow: hidden;
+    }
+
+    .swiper-container
+    {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        margin-left: -50%;
+
+    }
+    .swiper-slide
+    {
+        background-size:cover;
+        background-position: center;
+        box-sizing: border-box;
+        
+        color: white;
+        font-family: 'Roboto', sans-serif;
+    }
         .wrapper
         {
             width: 100%;
@@ -99,7 +123,7 @@
         .buttons-container a{
             display: flex;
             align-items: center;
-            width: 60%;
+            width: 100%;
             margin-bottom: min(5vw,2.5vh);
         }
         .buttons-container img
@@ -113,9 +137,15 @@
             font-size: min(4vw,1.8vh);
             overflow: hidden;
         }
+
         p span,h1 span {
           display: block;
+          
           animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 3s;
+        }
+        p span
+        {
+            color: black;
         }
         
         @keyframes reveal {
@@ -152,7 +182,7 @@
        
         .social-icons
         {
-            position: fixed;  
+            position: absolute;  
             margin-left: min(5.8vw,3vh);
             margin-top: min(12vw,6vh);
             bottom: 0;
@@ -257,11 +287,6 @@
 
             }
         
-
-          
-              
-        
-      
           .loading-tag
           {
               margin-top: 20px;
@@ -276,7 +301,90 @@
               color: #16A8E1;
           }
 
+      
+       /*share slide*/
+        .share-slide
+        {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #D8F1FB;
+            mix-blend-mode: normal;
+            backdrop-filter: blur(30px);
+            
+            
+        }
+        .share-slide .close-icon
+        {
+            position: absolute;
+            top:4%;
+            left: 5%;
+            width: min(5vw,3vh);
+            height: min(5vw,3vh);
+        }
+        .share-slide-share-icons
+        {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+           
+        }
+        .share-slide-share-icons h2, .qr-code-wrapper h2
+        {
+            font-size: min(5vw,2.5vh);
+            color: #757575;
+        }
+        .icon-grid
+        {
+            display: grid;
+            width: 80%;
+            grid-template-columns: 11vw 11vw 11vw 11vw;
+            grid-gap: min(2vw,1vh);
+            margin-top: min(2vw,1vh);
+            justify-content: center;
+        }
+        .icon-grid a
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .icon-grid img
+        {
+            width: min(11vw,5vh);
+            height: min(11vw,5vh);
+        }
+        .scan-and-save-txt
+        {
+            margin-top: min(30vw,10vh);
+            
+        }
+        .qr-code-wrapper
+        {
+            width: 100%;
+            height: 50vh;
+            
+            display: flex;
+            flex-direction: column;
+            color: #757575;
+            align-items: center;
+        }
+        .qr-code-container img
+        { 
+            width: min(40vw,20vh);
+            height: min(40vw,20vh);
+            margin-top: min(2vw,1vh); 
+        }
 
+          
+          
+
+
+         
 
 
     
@@ -286,10 +394,15 @@
 <body>
 
 
+ 
+
+
+
+
     <!-- Loader ----> 
     <div class="loader-container">
         <div class="dual-ring">
-            <img src="logo.gif" alt="logo-name" class="logo-name"/>
+            <img src="a555139bd61417293b2a23b0fff2a5a83da41538.gif" alt="logo-name" class="logo-name"/>
         </div>
         <div>
           <h3 class="loading-tag">Ένα με</h3>
@@ -298,19 +411,23 @@
         </div>
   
     </div> 
-     
 
-        <div class="wrapper">
+    <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      
+      <div class="swiper-slide screen-01">
+           <div class="wrapper">
         
 
             <div  onclick="share()">
-                <img src="share.png" alt="share-icon" class="share-icon">
+                <img src="share.png" alt="share-icon" class="share-icon swiper-button-next">
             </div>
 
              
 
             <div class="brand">
-                <img src="logo.gif"  alt="logo" class="logo" />
+                <img src="a555139bd61417293b2a23b0fff2a5a83da41538.gif"  alt="logo" class="logo" />
             </div>
 
             <div class="text-wrapper">
@@ -380,22 +497,89 @@
           
 
         </div>
+      </div>
+
+    
+
+       <div class="swiper-slide screen-02">
+              <div class="share-slide" id="share-slide">
+              
+              <img src="close icon.png" class="swiper-button-prev close-icon" onclick="closeTheShare()" >
+              
+              <div class="share-slide-share-icons">
+                  <h2>SHARE MY CARD</h2>
+                  <div class="icon-grid">
+                      <a href="#" ><img src="sms.png"></a>
+                      <a href="#"><img src="cs.png"></a>
+                      <a href="#"><img src="whatsapp.png"></a>
+                      <a href="#"><img src="dropbox 187.png"></a>
+                      <a href="#"><img src="fb9.png"></a>
+                      <a href="#"><img src="telegram 191.png"></a>
+                      <a href="#"><img src="twitter8.png"></a>
+                      <a href="#"><img src="linkedin3.png"></a>
+                  </div>
+                  <h2 class="scan-and-save-txt">SCAN AND SAVE</h2>
+                  <div class="qr-code-container">
+                      <img src="qr.png">
+                  </div>
+              </div>
+            </div>
+       </div>
+
+
+
+
+    </div>
+  </div>     
+     
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+         
 
 
 
         <script>
             /*share screen on off js*/
+                    var swiper = new Swiper('.swiper-container', {
+              speed: 600,
+              parallax: true,
+             /* effect: 'coverflow',
+              grabCursor: true,
+              centeredSlides: true,
+              slidesPerView: 'auto',
+              coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 200,
+                modifier: 1,
+                slideShadows: true,
+
+              },*/
+              effect: 'flip',
+              grabCursor: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                }
+            });
+
+
 
             function share()
             {
-                console.log('opened')
+                console.log('opened');
+               
                
             }
+
+
 
             function closeTheShare()
             {
             
-                console.log('closed')
+                console.log('closed');
+               
+
+               
                 
             }
 
